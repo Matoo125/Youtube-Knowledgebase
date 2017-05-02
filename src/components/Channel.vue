@@ -1,0 +1,78 @@
+<template>
+  <div class="container">
+  <i  v-show="loading" class="fa fa-spinner fa-spin fa-4x"></i>
+
+      <div class="columns is-multiline">
+        <div class="column is-3" v-for="video in videos">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img :src="video.snippet.thumbnails.high.url" alt="">
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <p>{{ video.snippet.title }}</p>
+              </div>
+            </div>
+            <footer class="card-footer">
+              <a class="card-footer-item">Watchlist</a>
+              <a class="card-footer-item">Like</a>
+              <a class="card-footer-item">Saw</a>
+            </footer>
+          </div>
+
+
+        </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Channel',
+  data () {
+    return {
+      loading: false,
+      videos: null,
+      uploads_id: null,
+      error: null
+    }
+  },
+  created () {
+    this.fetchUploadsId()
+  },
+  mounted () {
+    setTimeout(() => this.fetchUploadsPlaylist(), 400)
+  },
+  methods: {
+    fetchUploadsId () {
+      this.error = this.videos = null
+      this.loading = true
+      // get uploads playlist id
+      /* global axios */
+      axios.get('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=' + this.$route.params.id + '&key=AIzaSyB-rHXLjy6DQXZn3irtKEgl9-hpjjU2LFg&fields=items/contentDetails/relatedPlaylists/uploads')
+      .then(response => (this.uploads_id = response.data.items[0].contentDetails.relatedPlaylists.uploads))
+    },
+    fetchUploadsPlaylist () {
+      // fetch uploads playlist videos
+      axios.get('https://www.googleapis.com/youtube/v3/playlistItems', {
+        params: {
+          part: 'snippet',
+          playlistId: this.uploads_id,
+          maxResults: 10,
+          key: 'AIzaSyB-rHXLjy6DQXZn3irtKEgl9-hpjjU2LFg'
+        }
+      })
+      .then(response => {
+        this.videos = response.data.items
+        this.loading = false
+      })
+      .catch(error => console.log(error))
+    }
+  }
+}
+</script>
+<style lang="scss">
+
+</style>
