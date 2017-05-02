@@ -26,3 +26,9 @@ npm run e2e
 # run all tests
 npm test
 ```
+
+## TO DO:
+- put it on free heroku instance
+- add some database support (maybe firebase)
+- improve design and structure of the pages
+- allow user to play video
