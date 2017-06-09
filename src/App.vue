@@ -9,7 +9,12 @@
 import Navigation from '@/components/Navigation'
 export default {
   name: 'app',
-  components: { Navigation }
+  components: { Navigation },
+  mounted () {
+    if (this.$store.state.categories === null) {
+      this.$store.dispatch('loadCategories')
+    }
+  }
 }
 </script>
 

@@ -1,0 +1,56 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "08a284b8d97ad0fc157bb68a87b23f5c",
+    "packages": [
+        {
+            "name": "m4/m4mvc",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Matoo125/m4mvc.git",
+                "reference": "0cb7daad2f2ed530864a61944ca6a4d683c3266d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Matoo125/m4mvc/zipball/0cb7daad2f2ed530864a61944ca6a4d683c3266d",
+                "reference": "0cb7daad2f2ed530864a61944ca6a4d683c3266d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "project",
+            "autoload": {
+                "psr-4": {
+                    "m4\\m4mvc\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matej",
+                    "email": "vrzala.matej@gmail.com"
+                }
+            ],
+            "description": "Simple php framework",
+            "time": "2017-06-09 06:29:02"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "m4/m4mvc": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

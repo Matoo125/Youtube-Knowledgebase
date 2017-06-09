@@ -74,7 +74,7 @@ export default {
         params: {
           part: 'snippet',
           playlistId: this.uploads_id,
-          maxResults: 10,
+          maxResults: 25, // max 50
           key: 'AIzaSyB-rHXLjy6DQXZn3irtKEgl9-hpjjU2LFg'
         }
       })

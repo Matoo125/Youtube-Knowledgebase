@@ -2,25 +2,20 @@
   <div class="container">
      <div class="columns is-multiline is-mobile">
        <div class="column is-3-desktop is-4-tablet is-6-mobile channel" v-for="channel in channels">
-             <router-link :to="{ name: 'Channel', params: { id: channel.id }}">
+             <router-link :to="{ name: 'Channel', params: { id: channel.y_id }}">
                <div class="card">
                   <div class="card-image">
                     <figure class="image is-1by1">
-                      <img :src="channel.snippet.thumbnails.high.url" alt="Image">
+                      <img :src="channel.thumbnail" alt="Image">
                     </figure>
                   </div>
                   <div class="card-content">
                     <div class="media">
                       <div class="media-content">
-                        <p class="title is-4">{{ channel.snippet.title}}</p>
+                        <p class="title is-4">{{ channel.title}}</p>
                       </div>
                     </div>
 
-                    <div class="content">
-                      {{ channel.snippet.description }}
-                      <br>
-                      <small>{{ channel.snippet.publishedAt}}</small>
-                    </div>
                   </div>
                 </div>
              </router-link>
@@ -30,26 +25,24 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'Channels',
   data () {
     return {
-      channelsID: ['UCpVm7bg6pXKo1Pr6k5kxG9A', 'UC4eYXhJI4-7wSWc8UNRwD4A', 'UCvQECJukTDE2i6aCoMnS-Vg', 'UCsooa4yRKGN_zEE8iknghZA', 'UCUdettijNYvLAm4AixZv4RA', 'UCuPgdqQKpq4T4zeqmTelnFg'],
-      results: []
+      channels: []
     }
   },
   mounted () {
-    /* global axios */
-    var url = 'https://www.googleapis.com/youtube/v3/channels?part=snippet&id=' + this.channelsID.join(',') + '&key=AIzaSyB-rHXLjy6DQXZn3irtKEgl9-hpjjU2LFg&fields=items(snippet,id)'
-    console.log(url)
-    axios.get(url)
-    .then(response => { this.results = response.data.items })
-  }, // this.results = response.data.items
-  computed: {
-    channels: function () {
-      this.results.forEach(x => (x.snippet.description = x.snippet.description.substr(0, 120)))
-      return this.results
-    }
+    axios.get('http://localhost/yworld/app/index.php?url=channels/list')
+    .then(response => {
+      console.log(response)
+      this.channels = response.data.channels
+      // this.loadChannelsFromYoutube()
+    })
+    .catch(error => {
+      console.log(error)
+    })
   }
 }
 </script>
@@ -57,5 +50,12 @@ export default {
 .channel {
   max-width: 240px !important;
 }
-
+.card {
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+}
+.cart-footer {
+    margin-top: auto;
+}
 </style>

@@ -1,0 +1,40 @@
+[
+    {
+        "name": "m4/m4mvc",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Matoo125/m4mvc.git",
+            "reference": "0cb7daad2f2ed530864a61944ca6a4d683c3266d"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Matoo125/m4mvc/zipball/0cb7daad2f2ed530864a61944ca6a4d683c3266d",
+            "reference": "0cb7daad2f2ed530864a61944ca6a4d683c3266d",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2017-06-09T06:29:02+00:00",
+        "type": "project",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "m4\\m4mvc\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Matej",
+                "email": "vrzala.matej@gmail.com"
+            }
+        ],
+        "description": "Simple php framework"
+    }
+]
