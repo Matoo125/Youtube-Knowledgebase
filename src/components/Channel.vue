@@ -7,7 +7,7 @@
     <transition name="modal" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
       <div class="modal animated is-active" v-show="modalActive">
         <div class="modal-background" @click="close"></div>
-        <div class="modal-content animated " :class="[modalActive ? 'zoomIn' : 'zoomOut']">
+        <div class="modal-content animated " :class="[modalActive ? '' : 'zoomOut']">
             <div id="player" data-type="youtube" data-video-id></div>
         </div>
         <button class="modal-close" @click="close"></button>
@@ -106,5 +106,7 @@ export default {
 }
 </script>
 <style lang="scss">
-
+.card-footer {
+  margin-top: auto;
+}
 </style>

@@ -8,7 +8,7 @@
       </div>
 
       <div class="nav-right nav-menu">
-        <router-link v-for="category in categories" :key="category.id" class="nav-item" :to="category.id">
+        <router-link v-for="category in categories" :key="category.id" class="nav-item" :to="{ name: 'Channels', params:{id: category.id} }" >
           {{ category.title }}
         </router-link>
       </div>
