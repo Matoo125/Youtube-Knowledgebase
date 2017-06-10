@@ -42,7 +42,7 @@ class Channel extends Model
 	public function getByCategory ($id, $items = null)
 	{
 		if (!$items) {
-			$items = ['ch.title', 'ch.thumbnail', 'ch.id'];
+			$items = ['ch.title', 'ch.thumbnail', 'ch.y_id'];
 		}
 
 		$query = $this->query->select(...$items)

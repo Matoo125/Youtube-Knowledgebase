@@ -155,7 +155,7 @@ export default { // https://www.googleapis.com/youtube/v3/channels?key=AIzaSyB-r
       .catch(error => { console.log(error) })
     },
     addToDatabase () {
-      axios.post('http://localhost/yworld/app/index.php?url=channels/add', {
+      axios.post(process.env.API + 'channels/add', {
         y_id: this.id,
         title: this.info.title,
         description: this.info.description,

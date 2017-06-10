@@ -15,7 +15,7 @@ const store = new Vuex.Store({
   },
   actions: {
     loadCategories (context) {
-      axios.get('http://localhost/yworld/app/index.php?url=categories/list')
+      axios.get(process.env.API + 'categories/list')
         .then(response => {
           console.log(response)
           context.commit('SET_CATEGORIES', response.data.categories)

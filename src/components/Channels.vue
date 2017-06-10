@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-     <div class="columns is-multiline is-mobile">
+     <div class="columns is-multiline is-mobile is-centered">
        <div class="column is-3-desktop is-4-tablet is-6-mobile channel" v-for="channel in channels">
              <router-link :to="{ name: 'Channel', params: { id: channel.y_id }}">
                <div class="card">
@@ -34,7 +34,13 @@ export default {
     }
   },
   mounted () {
-    axios.get('http://localhost/yworld/app/index.php?url=channels/list')
+    var url
+    if (this.$route.params.id) {
+      url = 'channels/listByCategory/' + this.$route.params.id
+    } else {
+      url = 'channels/list'
+    }
+    axios.get(process.env.API + url)
     .then(response => {
       console.log(response)
       this.channels = response.data.channels
@@ -47,6 +53,9 @@ export default {
 }
 </script>
 <style lang="scss">
+.is-centered {
+  justify-content: center;
+}
 .channel {
   max-width: 240px !important;
 }
