@@ -25,8 +25,8 @@ class Channels extends Controller
 		Request::required($_POST, ['y_id', 'title', 'description', 'published_at', 'thumbnail']);
 
 		$id = $this->model->create([
-			'y_id'	=>	$_POST['y_id'],
-			'title'	=>	$_POST['title'],
+			'y_id'			=>	$_POST['y_id'],
+			'title'			=>	$_POST['title'],
 			'thumbnail'		=>	$_POST['thumbnail'],
 			'description'	=>	$_POST['description'],
 			'published_at'	=>  date('Y-m-d H:m:i', strtotime($_POST['published_at']))
