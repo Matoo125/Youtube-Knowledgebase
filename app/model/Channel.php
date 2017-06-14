@@ -34,7 +34,7 @@ class Channel extends Model
 	{
 		$query = $this->query->select($items)
 		                     ->from(self::$table)
-		                     ->orderBy('published_at', 'DESC')
+		                     ->orderBy('created_at', 'DESC')
 		                     ->build();
 
 		return $this->fetchAll($query, []);
