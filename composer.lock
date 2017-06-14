@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Matoo125/m4mvc.git",
-                "reference": "aa048a9508c8c2e0abefc6a4b1fffe25cc4dc7cb"
+                "reference": "4b03bda83ff6dfd31760f5a92a4e6874efde9798"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Matoo125/m4mvc/zipball/aa048a9508c8c2e0abefc6a4b1fffe25cc4dc7cb",
-                "reference": "aa048a9508c8c2e0abefc6a4b1fffe25cc4dc7cb",
+                "url": "https://api.github.com/repos/Matoo125/m4mvc/zipball/4b03bda83ff6dfd31760f5a92a4e6874efde9798",
+                "reference": "4b03bda83ff6dfd31760f5a92a4e6874efde9798",
                 "shasum": ""
             },
             "require": {
@@ -40,7 +40,7 @@
                 }
             ],
             "description": "Simple php framework",
-            "time": "2017-06-09 13:34:44"
+            "time": "2017-06-14 12:50:49"
         }
     ],
     "packages-dev": [],

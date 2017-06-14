@@ -22,7 +22,7 @@ class Channels extends Controller
 	public function add ()
 	{
 		Request::forceMethod('post');
-		Request::required($_POST, ['y_id', 'title', 'description', 'published_at', 'thumbnail']);
+		Request::required('y_id', 'title', 'description', 'published_at', 'thumbnail');
 
 		$id = $this->model->create([
 			'y_id'			=>	$_POST['y_id'],
