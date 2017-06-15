@@ -12,12 +12,12 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 
 
--- Dumping database structure for youtube_knowledgebase
-DROP DATABASE IF EXISTS `youtube_knowledgebase`;
-CREATE DATABASE IF NOT EXISTS `youtube_knowledgebase` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `youtube_knowledgebase`;
+-- Dumping database structure for youtubebase
+DROP DATABASE IF EXISTS `youtubebase`;
+CREATE DATABASE IF NOT EXISTS `youtubebase` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `youtubebase`;
 
--- Dumping structure for table youtube_knowledgebase.categories
+-- Dumping structure for table youtubebase.categories
 DROP TABLE IF EXISTS `categories`;
 CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
--- Dumping data for table youtube_knowledgebase.categories: ~6 rows (approximately)
+-- Dumping data for table youtubebase.categories: ~6 rows (approximately)
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
 INSERT INTO `categories` (`id`, `title`, `created_at`, `updated_at`) VALUES
 	(1, 'news', '2017-06-09 09:47:40', '2017-06-09 09:47:40'),
@@ -40,7 +40,7 @@ INSERT INTO `categories` (`id`, `title`, `created_at`, `updated_at`) VALUES
 	(8, 'culture', '2017-06-09 14:48:56', '2017-06-09 14:48:56');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 
--- Dumping structure for table youtube_knowledgebase.categoriesmatcher
+-- Dumping structure for table youtubebase.categoriesmatcher
 DROP TABLE IF EXISTS `categoriesmatcher`;
 CREATE TABLE IF NOT EXISTS `categoriesmatcher` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `categoriesmatcher` (
   CONSTRAINT `FK_ChannelCategoryMatcher` FOREIGN KEY (`channel_id`) REFERENCES `channels` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
--- Dumping data for table youtube_knowledgebase.categoriesmatcher: ~8 rows (approximately)
+-- Dumping data for table youtubebase.categoriesmatcher: ~8 rows (approximately)
 /*!40000 ALTER TABLE `categoriesmatcher` DISABLE KEYS */;
 INSERT INTO `categoriesmatcher` (`id`, `channel_id`, `category_id`, `created_at`) VALUES
 	(9, 14, 1, '2017-06-09 14:09:37'),
@@ -68,7 +68,7 @@ INSERT INTO `categoriesmatcher` (`id`, `channel_id`, `category_id`, `created_at`
 	(17, 21, 7, '2017-06-09 15:10:25');
 /*!40000 ALTER TABLE `categoriesmatcher` ENABLE KEYS */;
 
--- Dumping structure for table youtube_knowledgebase.channels
+-- Dumping structure for table youtubebase.channels
 DROP TABLE IF EXISTS `channels`;
 CREATE TABLE IF NOT EXISTS `channels` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `channels` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=latin1;
 
--- Dumping data for table youtube_knowledgebase.channels: ~7 rows (approximately)
+-- Dumping data for table youtubebase.channels: ~7 rows (approximately)
 /*!40000 ALTER TABLE `channels` DISABLE KEYS */;
 INSERT INTO `channels` (`id`, `y_id`, `title`, `description`, `published_at`, `created_at`, `updated_at`, `thumbnail`) VALUES
 	(14, 'UCLXo7UDZvByw2ixzpQCufnA', 'Vox', 'Vox helps you cut through the noise and understand what\'s driving events in the headlines and in our lives, on everything from Taxes to Terrorism to Taylor Swift. Vox Video is Joe Posner, Joss Fong, Estelle Caswell, Johnny Harris, Phil Edwards, Carlos Waters, Gina Barton, Liz Scheltens, Liz Plank, Christophe Haubursin, Carlos Maza, Coleman Lowndes, Matteen Mokalla, Dion Lee, Dean Peterson, Mac Schneider, Sam Ellis, Valerie Lapinski, Michael Cades, Mona Lalwani, and the staff of Vox.com. \n\nFor much much more, head over to www.vox.com. And subscribe so you don\'t miss a video at http://goo.gl/0bsAjO\n\nTo write us: joe@vox.com.\nTo request permission to use our videos: permissions@voxmedia.com', '2014-03-04 20:03:30', '2017-06-09 14:09:37', '2017-06-09 14:09:37', 'https://yt3.ggpht.com/-moy7q66uDVs/AAAAAAAAAAI/AAAAAAAAAAA/3kiAD7O0Q_E/s240-c-k-no-mo-rj-c0xffffff/photo.jpg'),
@@ -95,7 +95,7 @@ INSERT INTO `channels` (`id`, `y_id`, `title`, `description`, `published_at`, `c
 	(21, 'UCT3v6vL2H5HK4loLMc8pmCw', 'VisualPolitik EN', 'Welcome to VisualPolitik! In this channel we\'ll be talking about politics, economics and things that are happening all around the world. Stay tuned!', '2017-01-22 15:01:50', '2017-06-09 15:10:24', '2017-06-09 15:10:24', 'https://yt3.ggpht.com/-kspDPiRU0n8/AAAAAAAAAAI/AAAAAAAAAAA/o1h4x-zJvxc/s240-c-k-no-mo-rj-c0xffffff/photo.jpg');
 /*!40000 ALTER TABLE `channels` ENABLE KEYS */;
 
--- Dumping structure for table youtube_knowledgebase.usercookies
+-- Dumping structure for table youtubebase.usercookies
 DROP TABLE IF EXISTS `usercookies`;
 CREATE TABLE IF NOT EXISTS `usercookies` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -109,11 +109,11 @@ CREATE TABLE IF NOT EXISTS `usercookies` (
   CONSTRAINT `FK_UserCookie` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table youtube_knowledgebase.usercookies: ~0 rows (approximately)
+-- Dumping data for table youtubebase.usercookies: ~0 rows (approximately)
 /*!40000 ALTER TABLE `usercookies` DISABLE KEYS */;
 /*!40000 ALTER TABLE `usercookies` ENABLE KEYS */;
 
--- Dumping structure for table youtube_knowledgebase.users
+-- Dumping structure for table youtubebase.users
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   UNIQUE KEY `UC_User` (`username`,`slug`,`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table youtube_knowledgebase.users: ~0 rows (approximately)
+-- Dumping data for table youtubebase.users: ~0 rows (approximately)
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
