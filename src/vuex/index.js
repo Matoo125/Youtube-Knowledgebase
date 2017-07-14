@@ -6,11 +6,18 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
   state: {
-    categories: null
+    categories: null,
+    channel: {
+      id: null,
+      info: null
+    }
   },
   mutations: {
     SET_CATEGORIES (state, categories) {
       state.categories = categories
+    },
+    SET_CHANNEL_INFO (state, info) {
+      state.channel.info = info
     }
   },
   actions: {

@@ -3,6 +3,7 @@
   
 <div style="display:flex;justify-content:center;align-items:center;" v-show="loading"><i class="fa fa-spinner fa-spin fa-4x"></i></div>
 
+    <ChannelInfo></ChannelInfo>
 
     <transition name="modal" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
       <div class="modal animated is-active" v-show="modalActive">
@@ -27,19 +28,26 @@
                 <p>{{ video.snippet.title }}</p>
               </div>
             </div>
-            <footer class="card-footer">
+            <!-- <footer class="card-footer">
               <a class="card-footer-item">Watchlist</a>
               <a class="card-footer-item">Like</a>
               <a class="card-footer-item">Saw</a>
-            </footer>
+            </footer> -->
           </div>
 
         </div>
     </div>
+
+    <nav class="pagination">
+      <a class="pagination-previous" @click="paginate('prev')" :disabled="!token.prev">Previous</a>
+      <a class="pagination-next" @click="paginate('next')" :disabled="!token.next">Next page</a>
+    </nav>
+
   </div>
 </template>
 
 <script>
+import ChannelInfo from './ChannelInfo.vue'
 export default {
   name: 'Channel',
   data () {
@@ -50,9 +58,14 @@ export default {
       uploads_id: null,
       modalActive: null,
       player: null,
-      error: null
+      error: null,
+      token: {
+        next: null,
+        prev: null
+      }
     }
   },
+  components: { ChannelInfo },
   created () {
     this.fetchUploadsId()
   },
@@ -60,6 +73,13 @@ export default {
     setTimeout(() => this.fetchUploadsPlaylist(), 400)
   },
   methods: {
+    paginate ($type) {
+      if ($type === 'next') {
+        this.token.next ? this.fetchUploadsPlaylist(this.token.next) : ''
+      } else if ($type === 'prev') {
+        this.token.prev ? this.fetchUploadsPlaylist(this.token.prev) : ''
+      }
+    },
     fetchUploadsId () {
       this.error = this.videos = null
       this.loading = true
@@ -68,18 +88,21 @@ export default {
       axios.get('https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=' + this.$route.params.id + '&key=AIzaSyB-rHXLjy6DQXZn3irtKEgl9-hpjjU2LFg&fields=items/contentDetails/relatedPlaylists/uploads')
       .then(response => (this.uploads_id = response.data.items[0].contentDetails.relatedPlaylists.uploads))
     },
-    fetchUploadsPlaylist () {
+    fetchUploadsPlaylist (pageToken) {
       // fetch uploads playlist videos
       axios.get('https://www.googleapis.com/youtube/v3/playlistItems', {
         params: {
           part: 'snippet',
           playlistId: this.uploads_id,
           maxResults: 24, // max 50
-          key: 'AIzaSyB-rHXLjy6DQXZn3irtKEgl9-hpjjU2LFg'
+          key: 'AIzaSyB-rHXLjy6DQXZn3irtKEgl9-hpjjU2LFg',
+          pageToken: pageToken
         }
       })
       .then(response => {
         this.videos = response.data.items
+        this.token.next = response.data.nextPageToken
+        this.token.prev = response.data.prevPageToken
         this.loading = false
       })
       .catch(error => console.log(error))

@@ -8,9 +8,20 @@
       </div>
 
       <div class="nav-right nav-menu">
-        <router-link v-for="category in categories" :key="category.id" class="nav-item" :to="{ name: 'Channels', params:{id: category.id} }" >
-          {{ category.title }}
-        </router-link>
+        <li class="nav-item">
+          <button class="button" type="button" @click="() => {this.dropdownOpen = !this.dropdownOpen}">
+            Genres
+          </button>
+        </li>
+        <div :class="[dropdownOpen ? 'is-open' : '', 'box', 'dropdown']">
+          <ul>
+          <span v-on:click="() => {this.dropdownOpen = !this.dropdownOpen}">
+          <router-link v-for="category in categories" :key="category.id" class="nav-item" :to="{ name: 'Channels', params:{id: category.id} }">
+             {{ category.title }}
+          </router-link>
+          </span>
+          </ul>
+        </div>
       </div>
     </div>
   </nav>
@@ -22,6 +33,7 @@ export default {
   name: 'Navigation',
   data () {
     return {
+      dropdownOpen: false
     }
   },
   computed: {
@@ -33,10 +45,20 @@ export default {
 </script>
 <style lang="scss">
 nav {
-  margin-bottom: 50px;
-  background-color: green;
+  margin-bottom: 20px;
 }
 
+.dropdown {
+  box-shadow: 0 0 8px #777;
+  display: none;
+  right: 0;
+  position: absolute;
+  top: 100%;
+  z-index: 1000;
+}
 
+.dropdown.is-open {
+  display: block;
+}
 
 </style>

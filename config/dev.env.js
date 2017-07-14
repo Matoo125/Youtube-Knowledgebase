@@ -3,5 +3,5 @@ var prodEnv = require('./prod.env')
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  API: '"http://localhost/Youtube-Knowledgebase/app/index.php?url="'
+  API: '"http://youtube-knowledgebase.6f.sk/app/index.php?url="'
 })
