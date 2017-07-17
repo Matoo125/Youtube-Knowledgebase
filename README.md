@@ -21,6 +21,7 @@ news, comedy, animation, education, music, adventure, politics, culturem technol
 
 ## To do
 - channel search 
+- save uploads playlist url to database
 - video detail with related videos
 - all channel's playlists
 - fix pagination (scrool to top of the list and apply loader)

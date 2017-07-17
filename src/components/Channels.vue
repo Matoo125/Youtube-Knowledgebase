@@ -2,7 +2,7 @@
   <div class="container">
      <div class="columns is-multiline is-mobile is-centered">
        <div class="column is-3-desktop is-4-tablet is-6-mobile channel" v-for="channel in channels">
-             <router-link :to="{ name: 'Channel', params: { id: channel.y_id }}">
+             <router-link :to="{ name: 'ChannelVideos', params: { id: channel.y_id }}">
                <div class="card">
                   <div class="card-image">
                     <figure class="image is-1by1">
