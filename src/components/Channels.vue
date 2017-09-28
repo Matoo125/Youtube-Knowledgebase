@@ -1,26 +1,29 @@
 <template>
-  <div class="container">
-     <div class="columns is-multiline is-mobile is-centered">
-       <div class="column is-3-desktop is-4-tablet is-6-mobile channel" v-for="channel in channels">
-             <router-link :to="{ name: 'ChannelVideos', params: { id: channel.y_id }}">
-               <div class="card">
-                  <div class="card-image">
-                    <figure class="image is-1by1">
-                      <img :src="channel.thumbnail" alt="Image">
-                    </figure>
-                  </div>
-                  <div class="card-content">
-                    <div class="media">
-                      <div class="media-content">
-                        <p class="title is-4">{{ channel.title}}</p>
-                      </div>
+  <div class="section">
+    <div class="container">
+       <div class="columns is-multiline is-mobile is-centered">
+         <div class="column is-3-desktop is-4-tablet is-6-mobile channel" 
+              v-for="channel in channels">
+               <router-link :to="{ name: 'ChannelVideos', params: { id: channel.y_id }}">
+                 <div class="card">
+                    <div class="card-image">
+                      <figure class="image is-1by1">
+                        <img :src="channel.thumbnail" alt="Image">
+                      </figure>
                     </div>
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-content">
+                          <p class="title is-4">{{ channel.title}}</p>
+                        </div>
+                      </div>
 
+                    </div>
                   </div>
-                </div>
-             </router-link>
+               </router-link>
+         </div>
        </div>
-     </div>
+    </div>
   </div>
 </template>
 

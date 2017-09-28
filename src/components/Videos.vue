@@ -44,6 +44,7 @@
 
 <script>
 import axios from 'axios'
+import plyr from 'plyr'
 export default {
   name: 'Videos',
   data () {
@@ -116,7 +117,7 @@ export default {
       // set video id
       var element = document.querySelector('#player')
       element.setAttribute('data-video-id', event.currentTarget.id)
-      /* global plyr */
+
       this.player = plyr.setup(document.querySelector('#player'))[0]
       // launch modal
       this.modalActive = true

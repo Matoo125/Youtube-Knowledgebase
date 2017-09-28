@@ -18,7 +18,7 @@
               <span>Playlists</span>
             </a>
           </router-link>
-          <router-link :to="{ path: '/123' }" class="link" tag="li">
+        <!--  <router-link :to="{ path: '/123' }" class="link" tag="li">
             <a>
               <span class="icon">
                <i class="fa fa-heart"></i>
@@ -33,7 +33,7 @@
               </span> 
               <span>Watchlist</span>
             </a>
-          </router-link>
+          </router-link> -->
       </ul>
     </div>
   </div>

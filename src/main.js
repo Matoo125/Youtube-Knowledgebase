@@ -6,6 +6,9 @@ import router from './router'
 import store from './vuex'
 import Toaster from 'v-toaster' // https://github.com/paliari/v-toaster
 import 'v-toaster/dist/v-toaster.css'
+import 'bulma/bulma.sass'
+import 'animate.css/animate.css'
+import 'plyr/dist/plyr.css'
 
 Vue.config.productionTip = false
 
